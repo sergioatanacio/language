@@ -25,7 +25,7 @@ class Element_html {
             : typeof string_of_html === 'string'
                 ? (()=>{
                     const div = document.createElement('div');
-                    div.innerHTML = htmlString.trim();                    
+                    div.innerHTML = string_of_html.trim();                    
                     const nodosHijos = div.childNodes;                    
                     const fragmento = document.createDocumentFragment();                    
                     // Utiliza forEach para iterar sobre cada nodo hijo y agregarlo al fragmento de documento
