@@ -25,8 +25,13 @@ class Element_html {
             : typeof string_of_html === 'string'
                 ? (()=>{
                     const div = document.createElement('div');
-                    div.innerHTML = string_of_html.trim();
-                    return div.firstChild;
+                    div.innerHTML = htmlString.trim();                    
+                    const nodosHijos = div.childNodes;                    
+                    const fragmento = document.createDocumentFragment();                    
+                    // Utiliza forEach para iterar sobre cada nodo hijo y agregarlo al fragmento de documento
+                    nodosHijos.forEach(nodoHijo => fragmento.appendChild(nodoHijo));
+                    
+                    return fragmento;
                     })()
                 : (console.error('Error: La asignación a html_element ha fallado, el nombre no es una cadena o un nodo válido.'), null);
     }
