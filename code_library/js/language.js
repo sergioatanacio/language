@@ -24,9 +24,9 @@ class Element_html {
             ? document.importNode(string_of_html, true)
             : typeof string_of_html === 'string'
                 ? (()=>{
-                    const range = document.createRange();
-                    const fragment = range.createContextualFragment(string_of_html);
-                    return fragment.firstChild;
+                    const div = document.createElement('div');
+                    div.innerHTML = string_of_html.trim();
+                    return div.firstChild;
                     })()
                 : (console.error('Error: La asignación a html_element ha fallado, el nombre no es una cadena o un nodo válido.'), null);
     }
