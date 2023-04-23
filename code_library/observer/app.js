@@ -49,3 +49,19 @@ totalPriceInput.addEventListener('input', (event) => {
     }
 });
   
+
+/* 
+Esta es la forma de trabajar si se va a suscribir una función antes de ser definida.
+
+let formulario = Observable.of().subscribe(arg => mensaje_a(arg));
+
+let mensaje_a = (arg)=>{
+    console.log(arg);
+}
+
+document.addEventListener('click', (event) => {
+    formulario.notify('Hola mundo');
+    // aquí puedes colocar el código que se ejecutará cuando se haga clic en cualquier parte de la página
+});
+
+*/
