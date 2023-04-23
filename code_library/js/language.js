@@ -212,6 +212,31 @@ class State {
         });
     }
 }
+
+class Observable {
+    constructor() {
+        this.observers = [];
+    }
+
+    static of() {
+        return new Observable();
+    }
+
+    subscribe(observer) {
+        this.observers.push(observer);
+        return this;
+    }
+
+    unsubscribe(observer) {
+        this.observers = this.observers.filter(obs => obs !== observer);
+        return this;
+    }
+
+    notify(data) {
+        this.observers.forEach(observer => observer(data));
+        return this;
+    }
+}
   
 class Composition {
     constructor(start) {
@@ -240,7 +265,7 @@ class Composition {
   
 
 
-export {Element_html, Io, Either, Maybe, State, Composition};
+export {Element_html, Io, Either, Maybe, State, Observable, Composition};
 
 
 /* 
